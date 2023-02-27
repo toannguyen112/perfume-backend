@@ -135,8 +135,6 @@ class Post extends BaseModel
             'slug' => $this->custom_slug ?? $this->slug,
             'thumbnail' => $this->thumbnail_path,
             'description' => $this->description,
-            'author' => $this->author,
-            'formatted_posted_at' => $this->formatted_posted_at,
         ];
     }
 
