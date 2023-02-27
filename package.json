@@ -10,7 +10,8 @@
         "frontend:ssr": "mix --mix-config=webpack.ssr.mix.js",
         "frontend:node": "node public/js/ssr.js",
         "route": "php artisan ziggy:generate && php artisan ziggy:generate resources/Frontend/js/ziggy.js",
-        "reset": "yarn && composer install && php artisan migrate:fresh --seed && yarn route"
+        "reset": "yarn && composer install && php artisan migrate:fresh --seed && yarn route",
+        "postinstall": "npm run prod"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.2",

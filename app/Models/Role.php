@@ -35,12 +35,6 @@ class Role extends SpatieRole
         });
     }
 
-    /**
-     * Save associated relations for the coupon.
-     *
-     * @param array $attributes
-     * @return void
-     */
     public function saveRelations(array $attributes)
     {
         $rolePermissionIDs = Arr::get($attributes, 'role_permissions', []);
