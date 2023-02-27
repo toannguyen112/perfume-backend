@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Post;;
+namespace App\Models\Post\PostCategory;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

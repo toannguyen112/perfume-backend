@@ -1,5 +1,3 @@
 <template>
-  <main>
-    About
-  </main>
+  <main>About page hihi</main>
 </template>

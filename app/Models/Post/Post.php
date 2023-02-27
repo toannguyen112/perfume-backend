@@ -2,7 +2,6 @@
 
 namespace App\Models\Post;
 
-use App\Models\PostCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jamstackvietnam\Support\Traits\HasMedia;
@@ -26,7 +25,7 @@ class Post extends BaseModel
         self::STATUS_INACTIVE => 'INACTIVE',
     ];
 
-    public $with = ['files', 'categories'];
+    public $with = ['files'];
 
     public $fillable = [
         'title',
@@ -60,9 +59,7 @@ class Post extends BaseModel
 
     protected $appends = ['thumbnail_path', 'url'];
 
-    protected $casts = [
-        'posted_at' => 'date',
-    ];
+    protected $casts = ['posted_at' => 'date'];
 
     public function modelRules()
     {
@@ -93,12 +90,6 @@ class Post extends BaseModel
         $model->relatedPosts()->sync($relatedPostIds, 'id');
     }
 
-    public function saveCategories($model)
-    {
-        $categories = array_column(request()->input('categories', []), 'id');
-        $model->categories()->sync($categories, 'id');
-    }
-
     public function relatedPosts()
     {
         return $this->belongsToMany(
@@ -109,29 +100,19 @@ class Post extends BaseModel
         );
     }
 
-    public function categories()
-    {
-        return $this->belongsToMany(
-            PostCategory::class,
-            'post_ref_categories',
-            'post_id',
-            'post_category_id'
-        );
-    }
-
     public function getPostRelatedIdsAttribute()
     {
         return $this->relatedPosts;
     }
 
+    public function scopeOrdered($query)
+    {
+        return $query->orderByRaw("is_featured DESC, view DESC, posted_at DESC");
+    }
+
     public function getFormattedPostedAtAttribute(): string
     {
         return datetime_format($this->attributes['posted_at'], 'd/m/Y');
-    }
-
-    public function getCategoryAttribute()
-    {
-        return $this->categories?->first();
     }
 
     public function getUrlAttribute(): array
@@ -151,7 +132,6 @@ class Post extends BaseModel
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'category' => $this->category?->transform(),
             'slug' => $this->custom_slug ?? $this->slug,
             'thumbnail' => $this->thumbnail_path,
             'description' => $this->description,
@@ -165,9 +145,7 @@ class Post extends BaseModel
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'category' => $this->category?->transform(),
             'slug' => $this->custom_slug ?? $this->slug,
-            'breadcrumb' => PostCategory::transformAsBreadcrumb($this->category),
             'description' => $this->description,
             'summary' => $this->summary,
             'author' => $this->author,
@@ -206,10 +184,5 @@ class Post extends BaseModel
         }
 
         return $relatedPosts->map(fn ($item) => $item->transform());
-    }
-
-    public function scopeOrdered($query)
-    {
-        return $query->orderByRaw("is_featured DESC, view DESC, posted_at DESC");
     }
 }

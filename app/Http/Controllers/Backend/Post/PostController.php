@@ -14,12 +14,8 @@ class PostController extends Controller
 
     public $model = Post::class;
 
-    public $with = [
-        'form' => ['categories']
-    ];
-
     public $appends = [
         'index' => ['formatted_updated_at', 'formatted_created_at'],
-        'form' => ['thumbnail', 'post_related_ids']
+        // 'form' => ['thumbnail', 'post_related_ids']
     ];
 }

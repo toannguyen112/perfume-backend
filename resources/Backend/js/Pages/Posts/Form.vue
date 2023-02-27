@@ -63,24 +63,6 @@
       </div>
       <div class="card">
         <Fieldset
-          v-model="form.categories"
-          :field="{
-            type: 'select_tree',
-            label: 'Danh mục',
-            placeholder: 'Danh mục',
-            labelBy: 'title',
-            keyBy: 'id',
-            childrenBy: 'nodes',
-            source: {
-              model: 'PostCategory',
-              method: 'getRoot',
-              only: ['id', 'title', 'nodes'],
-            },
-          }"
-        />
-      </div>
-      <div class="card">
-        <Fieldset
           v-model="form.post_related_ids"
           :field="{
             type: 'select_source',
@@ -147,7 +129,6 @@ export default {
 
   methods: {
     initForm() {
-      this.item.view = this.item.view ? this.item.view : 0;
       this.form = this.$inertia.form({ ...this.item });
     },
   },
