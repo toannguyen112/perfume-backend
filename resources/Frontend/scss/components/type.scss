@@ -1,0 +1,65 @@
+body {
+  @apply text-xl;
+}
+
+.h0 {
+  @apply text-5xl;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  @apply font-display;
+}
+
+.h1 {
+  @apply text-5xl font-bold;
+}
+
+.h2 {
+  @apply text-4xl font-bold;
+}
+
+.h3 {
+  @apply text-3xl font-semibold;
+}
+
+.h4 {
+  @apply text-2xl font-medium;
+}
+
+.h5 {
+  @apply text-xl font-medium;
+}
+
+@screen md {
+  .h1 {
+    @apply text-7xl;
+  }
+
+  .h2 {
+    @apply text-6xl;
+  }
+
+  .h3 {
+    @apply text-4xl;
+  }
+
+  .h4 {
+    @apply text-3xl;
+  }
+
+  .h5 {
+    @apply text-2xl;
+  }
+}
+
+.link {
+  @apply break-all;
+
+  &:hover {
+    @apply text-primary transition duration-300;
+  }
+}

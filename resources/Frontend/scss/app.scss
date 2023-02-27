@@ -1,0 +1,83 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'components/button';
+@import 'components/type';
+
+@layer base {
+  @font-face {
+    font-family: 'Averta';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    // src: url('~assets/fonts/Averta-Light.otf');
+  }
+
+  @font-face {
+    font-family: 'Averta';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    // src: url('~assets/fonts/Averta-Regular.otf');
+  }
+
+  @font-face {
+    font-family: 'Averta';
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    // src: url('~assets/fonts/Averta-Semibold.otf');
+  }
+
+  @font-face {
+    font-family: 'Averta';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    // src: url('~assets/fonts/Averta-Black.otf');
+  }
+
+  body {
+    @apply cursor-default overflow-x-hidden;
+  }
+
+  svg,
+  img {
+    @apply max-w-full max-h-full;
+  }
+
+  textarea {
+    @apply resize-none;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+@screen md {
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity 0.1s;
+  }
+  .page-enter,
+  .page-leave-to {
+    opacity: 0;
+  }
+
+  .layout-enter-active,
+  .layout-leave-active {
+    transition: opacity 0.1s;
+  }
+  .layout-enter,
+  .layout-leave-to {
+    opacity: 0;
+  }
+}

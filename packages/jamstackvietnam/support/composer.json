@@ -1,0 +1,36 @@
+{
+    "name": "jamstackvietnam/support",
+    "description": "support",
+    "homepage": "https://jamstackvietnam.com",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Whoosh",
+            "email": "nhatkha1407@gmail.com"
+        }
+    ],
+    "require": {
+        "nicolaslopezj/searchable": "*",
+        "spatie/laravel-permission": "*",
+        "stechstudio/laravel-ssh-tunnel": "*",
+        "league/glide-laravel": "*",
+        "inertiajs/inertia-laravel": "*",
+        "tightenco/ziggy": "*"
+    },
+    "require-dev": {
+        "beyondcode/laravel-query-detector": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jamstackvietnam\\Support\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

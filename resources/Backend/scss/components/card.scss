@@ -1,0 +1,7 @@
+.card {
+    @apply bg-white rounded shadow p-6;
+}
+
+.card + .card:not(.card-row) {
+    @apply mt-6;
+}

@@ -1,0 +1,52 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "php artisan ziggy:generate resources/Frontend/js/ziggy.js && mix --mix-config=webpack.csr.mix.js watch --hot && mix --mix-config=webpack.ssr.mix.js watch --hot && frontend:node",
+        "prod": "npm run backend:prod && npm run frontend:prod",
+        "backend": "mix watch --mix-config=webpack.backend.mix.js",
+        "backend:prod": "mix --production --mix-config=webpack.backend.mix.js",
+        "frontend:prod": "npm run frontend:csr --production && npm run frontend:ssr --production",
+        "frontend:csr": "mix --mix-config=webpack.csr.mix.js",
+        "frontend:ssr": "mix --mix-config=webpack.ssr.mix.js",
+        "frontend:node": "node public/js/ssr.js",
+        "route": "php artisan ziggy:generate && php artisan ziggy:generate resources/Frontend/js/ziggy.js",
+        "reset": "yarn && composer install && php artisan migrate:fresh --seed && yarn route"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "axios": "^0.21",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^6.0.6",
+        "laravel-mix-merge-manifest": "^2.0.0",
+        "laravel-mix-svg-vue": "^0.4.1",
+        "lodash": "^4.17.19",
+        "postcss": "^8.4.6",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.49.9",
+        "sass-loader": "^12.6.0",
+        "tailwindcss": "^3.0.19",
+        "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
+        "@inertiajs/server": "^0.1.0",
+        "@tailwindcss/line-clamp": "^0.3.1",
+        "@tailwindcss/typography": "^0.5.2",
+        "@tinymce/tinymce-vue": "^4.0.7-rc.20220227221622816.shae4a6878",
+        "@vue/server-renderer": "^3.2.31",
+        "svg-vue3": "^0.2.1",
+        "tiny-emitter": "^2.1.0",
+        "vue": "^3.2.29",
+        "vue-multiselect": "^3.0.0-alpha.2",
+        "vuedraggable": "^4.1.0",
+        "webpack-filter-warnings-plugin": "^1.2.1",
+        "webpack-node-externals": "^3.0.0",
+        "ziggy-js": "^1.4.6"
+    },
+    "engines": {
+        "node": "16.x",
+        "yarn": "1.x"
+    }
+}

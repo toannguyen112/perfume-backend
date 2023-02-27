@@ -1,0 +1,27 @@
+{
+    "name": "jam-heroku",
+    "env": {
+        "APP_ENV": "production",
+        "CACHE_DRIVER": "array",
+        "DB_CONNECTION": "pgsql"
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        },
+        "scheduler": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "addons": ["heroku-postgresql:hobby-dev"],
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "heroku/php"
+        }
+    ]
+}

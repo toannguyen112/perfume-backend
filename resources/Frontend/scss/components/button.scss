@@ -1,0 +1,33 @@
+.btn {
+  // Button base
+  @apply inline-flex items-center no-underline cursor-pointer bg-transparent border border-transparent transition duration-150 ease-in-out;
+  @media (prefers-reduced-motion: reduce) {
+    @apply transition-none;
+  }
+  height: 44px;
+
+  // Button style
+  @apply px-28 text-sm uppercase rounded-sm;
+  @apply text-primary;
+
+  &:hover {
+  }
+}
+
+.btn-primary {
+  @apply bg-primary text-white;
+  &:hover {
+    @apply bg-primary-dark;
+  }
+  &:focus {
+    @apply bg-primary-darker;
+  }
+}
+
+.btn-outline-primary {
+  @apply border border-primary text-primary;
+
+  &:hover {
+    @apply bg-primary text-white;
+  }
+}
