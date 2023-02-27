@@ -11,20 +11,20 @@ class PostController extends Controller
 
     public function index()
     {
-        $query = $this->model::query()
-            ->active();
+        // $query = $this->model::query()
+        //     ->active();
 
-        $posts = $query->orderByDesc('is_featured')
-            ->orderByDesc('posted_at')
-            ->orderByDesc('id')
-            ->paginate(11)
-            ->through(function ($item) {
-                return $item->transform();
-            })->withQueryString();
+        // $posts = $query->orderByDesc('is_featured')
+        //     ->orderByDesc('posted_at')
+        //     ->orderByDesc('id')
+        //     ->paginate(11)
+        //     ->through(function ($item) {
+        //         return $item->transform();
+        //     })->withQueryString();
 
-        $data = ['posts' => $posts];
+        // $data = ['posts' => $posts];
 
-        return response()->json($data);
+        return response()->json('Test');
     }
 
     public function show($slug, $id)
