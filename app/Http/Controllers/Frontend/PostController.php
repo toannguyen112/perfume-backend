@@ -24,7 +24,7 @@ class PostController extends Controller
 
         // $data = ['posts' => $posts];
 
-        return response()->json('Test');
+        return response()->json('Test1');
     }
 
     public function show($slug, $id)
