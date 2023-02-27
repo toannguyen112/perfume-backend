@@ -1,5 +1,3 @@
 <template>
-  <main>
-    Homepage
-  </main>
+  <main>Homepage test</main>
 </template>
