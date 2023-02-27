@@ -14,7 +14,7 @@ class PreInstallSeeder extends Seeder
     public function run()
     {
         $this->call([
-            RoleSeeder::class,
+            // RoleSeeder::class,
         ]);
     }
 }
