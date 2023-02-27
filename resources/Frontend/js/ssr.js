@@ -4,7 +4,7 @@ import { renderToString } from "@vue/server-renderer";
 import SvgVue from "svg-vue3";
 import { createSSRApp, h } from "vue";
 import route from "ziggy-js";
-import ClientOnly from "./Components/Jam/ClientOnly.vue";
+// import ClientOnly from "./Components/Jam/ClientOnly.vue";
 
 createServer((page) =>
     createInertiaApp({
@@ -25,7 +25,7 @@ createServer((page) =>
                 })
                 .component("Link", Link)
                 .component("Head", Head)
-                .component("ClientOnly", ClientOnly);
+                // .component("ClientOnly", ClientOnly);
         },
     })
 );

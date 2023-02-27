@@ -1,4 +1,4 @@
-<script>
+ <script>
 import { ref, onMounted, defineComponent, createElementBlock } from "vue";
 
 export default defineComponent({
