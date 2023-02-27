@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,10 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // if (config('app.env') === 'production') {
-        //     \URL::forceScheme('https');
-        // }
-
+        Schema::defaultStringLength(191);
         $mainPath = database_path('migrations');
         $paths = array_merge([$mainPath], glob($mainPath . '/*', GLOB_ONLYDIR));
 
