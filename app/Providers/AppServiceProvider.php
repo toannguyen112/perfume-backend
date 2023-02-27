@@ -26,14 +26,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
+
         $mainPath = database_path('migrations');
-        $paths = array_merge([$mainPath], glob($mainPath . '/*' , GLOB_ONLYDIR));
+        $paths = array_merge([$mainPath], glob($mainPath . '/*', GLOB_ONLYDIR));
 
         $this->loadMigrationsFrom($paths);
 
         $this->registerWhereLikeMacro();
 
-        Model::preventLazyLoading(! app()->isProduction());
+        Model::preventLazyLoading(!app()->isProduction());
     }
 
 
